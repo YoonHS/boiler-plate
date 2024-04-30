@@ -10,8 +10,6 @@ mongoose.connect(
 .catch(err => console.log(err))
 
 
-
-
 app.get('/', (req, res) => {
   res.send('Hello World!  한글 ')
 })
