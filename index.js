@@ -4,6 +4,8 @@ const port = 5200
 const bodyParser = require('body-parser')
 const {User} = require('./models/User');
 
+const config = require('./config/key')
+
 app.use(express.json())
 
 // application/x-www-form-urlencoded parsing
@@ -14,8 +16,7 @@ app.use(bodyParser.json());
 
 const mongoose = require('mongoose')
 mongoose.connect(
-  'mongodb+srv://yoonhs306:comatose86@boilerplate.k6wqcef.mongodb.net/?retryWrites=true&w=majority&appName=boilerplate'
-  // ,{userNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, userFildAndModify: false}
+  config.mongoURI // ,{userNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, userFildAndModify: false}
 ).then(() => console.log('MongoDB Connected..'))
 .catch(err => console.log(err))
 
